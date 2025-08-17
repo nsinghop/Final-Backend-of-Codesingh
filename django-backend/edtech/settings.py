@@ -96,7 +96,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5174",
     "http://127.0.0.1:5174",
     "https://codesingh.onrender.com",
-    "https://codesingh.in/",
+    "https://codesingh.in",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
