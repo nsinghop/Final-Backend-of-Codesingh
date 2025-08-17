@@ -96,9 +96,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5174",
     "http://127.0.0.1:5174",
     "https://codesingh.onrender.com",
-    "https://codesingh.in",
+    "https://final-backend-of-codesingh.onrender.com",
+    "https://codesingh.in"
 ]
 CORS_ALLOW_CREDENTIALS = True
+
+# Additional CORS settings for development
+CORS_ALLOW_ALL_ORIGINS = DEBUG  # Only allow all origins in debug mode
 
 # CSRF (important for Render)
 CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
