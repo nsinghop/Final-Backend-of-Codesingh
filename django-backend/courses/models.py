@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Course(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField()
+    description = models.TextField(max_length=170)
     thumbnail = models.URLField(blank=True, help_text="Course thumbnail image URL")
     created_at = models.DateTimeField(auto_now_add=True)
 
