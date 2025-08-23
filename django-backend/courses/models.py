@@ -3,7 +3,11 @@ from django.contrib.auth.models import User
 
 class Course(models.Model):
     title = models.CharField(max_length=200)
+<<<<<<< HEAD
     description = models.TextField(max_length=170)
+=======
+    description = models.TextField()
+>>>>>>> bd6ddda (Complier added)
     thumbnail = models.URLField(blank=True, help_text="Course thumbnail image URL")
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -14,6 +18,12 @@ class Course(models.Model):
 class Lecture(models.Model):
     course = models.ForeignKey(Course, related_name="lectures", on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
+<<<<<<< HEAD
+=======
+    topic = models.CharField(max_length=200, blank=True, help_text="Topic of the lecture")
+    lecture_type = models.CharField(max_length=10, choices=[('Live', 'Live'), ('Recorded', 'Recorded')], default='Recorded', help_text="Type of lecture: Live or Recorded")
+    upload_date = models.DateTimeField(null=True, blank=True, help_text="Lecture uploading date")
+>>>>>>> bd6ddda (Complier added)
     youtube_url = models.URLField(help_text="YouTube video URL")
     questions = models.JSONField(default=list, help_text="List of external question links (LeetCode, GeeksforGeeks, etc.)")
     code = models.TextField(blank=True, null=True, help_text="Python code snippet")
