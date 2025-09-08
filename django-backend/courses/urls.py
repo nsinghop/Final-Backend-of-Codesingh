@@ -8,4 +8,5 @@ router.register(r'lectures', LectureViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
+    path('api/users/', include('users.urls')),
 ]
