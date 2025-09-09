@@ -28,6 +28,15 @@ INSTALLED_APPS = [
     'users',
 ]
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -67,6 +76,10 @@ DATABASES = {
         ssl_require=os.environ.get("RENDER", "False") == "True"
     )
 }
+
+# User Auth Teacher and all
+AUTH_USER_MODEL = 'users.CustomUser'
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [

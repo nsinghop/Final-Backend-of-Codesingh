@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 
 class Course(models.Model):
     title = models.CharField(max_length=200)
@@ -8,6 +8,12 @@ class Course(models.Model):
 
     thumbnail = models.URLField(blank=True, help_text="Course thumbnail image URL")
     created_at = models.DateTimeField(auto_now_add=True)
+    # created_by = models.ForeignKey(
+    #     settings.AUTH_USER_MODEL,
+    #     on_delete=models.CASCADE,
+    #     related_name="courses"
+    # )
+
 
     def __str__(self):
         return self.title
@@ -33,7 +39,7 @@ class Lecture(models.Model):
 
 
 class Enrollment(models.Model):
-    user = models.ForeignKey(User, related_name="enrollments", on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="enrollments", on_delete=models.CASCADE)
     course = models.ForeignKey(Course, related_name="enrollments", on_delete=models.CASCADE)
     enrolled_at = models.DateTimeField(auto_now_add=True)
 
