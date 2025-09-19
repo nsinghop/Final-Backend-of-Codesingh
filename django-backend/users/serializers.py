@@ -11,5 +11,5 @@ class UserSerializer(serializers.ModelSerializer):
         return CourseListSerializer(courses, many=True).data
     class Meta:
         model = CustomUser
-        fields = ('id', 'username', 'email', 'is_student', 'is_teacher', 'phone', 'password', 'enrolled_courses')
+        fields = ('id', 'username', 'email', 'role', 'phone', 'password', 'enrolled_courses')
         extra_kwargs = {'password': {'write_only': True}}
